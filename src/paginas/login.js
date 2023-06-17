@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Linking } from "react-native";
 
 import styles from './style';
 
@@ -24,7 +24,7 @@ export default function Login({ navigation }) {
 
     if (user) {
         //console.log('Login efetuado')
-        navigation.navigate('Home')
+        Linking.openURL('src/paginas/home.js')
         return
     }
 

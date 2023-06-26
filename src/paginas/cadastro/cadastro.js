@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert, Linking } from "react-native";
-
-import styles from './style';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert, Image } from "react-native";
+import styles from '../cadastro/style';
 
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from "../service/firebaseConfig";
+import { app, auth } from "../../service/firebaseConfig";
+
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+
 
 
 export default function Cadastro({ navigation }) {
@@ -17,30 +19,42 @@ export default function Cadastro({ navigation }) {
     const [
         createUserWithEmailAndPassword,
         user,
-        loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    function createUser() {
-        createUserWithEmailAndPassword(email, senha);
-    }
+    const db = getFirestore(app);
+    const userCollectionRef = collection(db, "usuarios/");
 
-    if (error) {
-        Alert('Erro ao criar cadastro!')
-        //Linking.openURL('src/paginas/login.js')        
-        return
+    //metodo para criar login e cadastro no banco
+    async function createUser() {
+        try {
+            createUserWithEmailAndPassword(email, senha);
+            addDoc(userCollectionRef, {
+                nome,
+                email,
+                cpf,
+                tipo,
+                senha,
+            });
+            Alert.alert('Usuário cadastrado com sucesso');
+            navigation.navigate('Login');
+        } catch (e) {
+            Alert.alert('Erro no cadastro, verifique os campos.');
+        }
     }
-
 
     return (
         <View style={styles.container}>
             <View style={styles.logo}>
-                <Text style={styles.textoLogo}>My App</Text>
+                <Image
+                    style={styles.logoImg}
+                    source={require('../../../assets/logo.png')}
+                />
             </View>
             <ScrollView
                 style={styles.scrol}
             >
-                <View style={styles.login}>
+                <View style={styles.cadastro}>
                     <Text style={styles.texto}>Nome e Sobrenome</Text>
                     <TextInput
                         style={styles.txtInput}

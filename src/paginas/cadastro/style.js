@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-    imgLogin: {
+    logoImg: {
         marginTop: 5,
         width: 50,
         height: 65,
@@ -23,37 +23,17 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    c1: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        margin: 20,
-        backgroundColor: '#E1F2DA'
-    },
-
-    textoLogo: {
-        fontSize: 30,
+    texto: {
+        margin: 12,
+        fontSize: 20,
         color: '#E1F2DA',
+        fontWeight: '500'
     },
 
-    imgView: {
-        alignItems: 'center',
-        flexDirection: 'column'
-    },
-
-    img: {
-        width: 320,
-        height: 250,
-        margin: 10,
-        backgroundColor: '#3B6CD4',
-        borderRadius: 10,
-    },
-
-    //estilo tela de login
-    login: {
+    cadastro: {
         width: '100%',
         justifyContent: 'center',
         marginBottom: 20,
-        //backgroundColor: 'white'
     },
 
     txtInput: {
@@ -72,8 +52,6 @@ const styles = StyleSheet.create({
     },
 
     btn: {
-        margintop: 10,
-        marginBottom: 20,
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
@@ -85,13 +63,6 @@ const styles = StyleSheet.create({
         margin: 12,
         fontSize: 22,
         color: '#008000',
-    },
-
-    texto: {
-        margin: 12,
-        fontSize: 20,
-        color: '#E1F2DA',
-        fontWeight:'500'
     },
 });
 

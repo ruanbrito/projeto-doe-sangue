@@ -1,41 +1,40 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Linking } from "react-native";
-
+import { View, Text, TextInput, TouchableOpacity, Image, Alert, Button } from "react-native";
 import styles from './style';
 
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../service/firebaseConfig";
 
 
 export default function Login({ navigation }) {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [
-        signInWithEmailAndPassword,
+    const [signInWithEmailAndPassword,
         user,
         loading,
-        error,
-    ] = useSignInWithEmailAndPassword(auth);
+        error,] = useSignInWithEmailAndPassword(auth);
 
-    if (error) {
-        alert('usuario ou senha incorreto')
-        return
-    }
+    function autenticar() {
+        
+        signInWithEmailAndPassword(email, senha);
 
-    if (user) {
-        //console.log('Login efetuado')
-        Linking.openURL('src/paginas/home.js')
-        return
+        if (error) {
+            Alert.alert('Falha na autenticação');
+        }
+        if (user) { navigation.navigate('Home'); }
     }
 
 
     return (
         <View style={styles.container}>
             <View style={styles.logo}>
-                <Text style={styles.textoLogo}>My App</Text>
+                <Image
+                    style={styles.imgLogin}
+                    source={require('../../assets/logo.png')}
+                />
             </View>
             <View style={styles.login}>
-                <Text style={styles.texto}>Usuário</Text>
+                <Text style={styles.texto}>E-mail</Text>
                 <TextInput
                     style={styles.txtInput}
                     value={email}
@@ -55,7 +54,7 @@ export default function Login({ navigation }) {
                 <TouchableOpacity
                     style={styles.btn}
                     onPress={() => {
-                        signInWithEmailAndPassword(email, senha);
+                       autenticar();
                     }}
                 >
                     <Text style={styles.txtbtn}>Login</Text>

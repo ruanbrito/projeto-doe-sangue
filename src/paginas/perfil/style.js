@@ -48,50 +48,42 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
 
-    //estilo tela de login
-    login: {
-        width: '100%',
-        justifyContent: 'center',
-        marginBottom: 20,
-        //backgroundColor: 'white'
+    //Perfil Usuario
+    fundo: {
+        flex: 1,
+        backgroundColor: '#008000',
     },
 
-    txtInput: {
-        height: 40,
-        borderWidth: 1,
-        marginLeft: 15,
-        marginRight: 15,
-        borderRadius: 10,
-        borderColor: 'white',
-        color: 'white',
-        padding: 10,
+    user: {
+        marginTop: 10,
+        marginLeft: 20,
+        marginBottom: 40,
     },
 
-    botao: {
-        alignItems: 'center'
+    txtUser: {
+        fontSize: 22,
+        color: '#E1F2DA',
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 20,
     },
 
     btn: {
-        margintop: 10,
-        marginBottom: 20,
-        borderRadius: 20,
-        alignItems: "center",
-        justifyContent: "center",
-        width: "40%",
-        backgroundColor: "#f6f6f6",
+        width: 100,
+        marginTop: 20,
+        marginLeft: 10,
     },
 
-    txtbtn: {
-        margin: 12,
+    voltar: {
+        marginTop: 20,
+        marginBottom: 5,
+    },
+
+    txtVoltar: {
         fontSize: 22,
-        color: '#008000',
-    },
-
-    texto: {
-        margin: 12,
-        fontSize: 20,
         color: '#E1F2DA',
-        fontWeight:'500'
+        marginTop: 10,
+        marginLeft: 20,
     },
 });
 

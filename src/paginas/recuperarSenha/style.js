@@ -30,25 +30,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E1F2DA'
     },
 
-    textoLogo: {
-        fontSize: 30,
-        color: '#E1F2DA',
-    },
 
-    imgView: {
-        alignItems: 'center',
-        flexDirection: 'column'
-    },
-
-    img: {
-        width: 320,
-        height: 250,
-        margin: 10,
-        backgroundColor: '#3B6CD4',
-        borderRadius: 10,
-    },
-
-    //estilo tela de login
     login: {
         width: '100%',
         justifyContent: 'center',
@@ -72,8 +54,6 @@ const styles = StyleSheet.create({
     },
 
     btn: {
-        margintop: 10,
-        marginBottom: 20,
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
@@ -91,7 +71,7 @@ const styles = StyleSheet.create({
         margin: 12,
         fontSize: 20,
         color: '#E1F2DA',
-        fontWeight:'500'
+        fontWeight: '500'
     },
 });
 
